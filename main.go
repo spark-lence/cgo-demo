@@ -15,6 +15,8 @@ package main
 import "C"
 
 func CallHello(word string) {
+	// 类型转换
+	// 因为参数*int8 实际上是 *signed char，所以我们这里直接string 转为*C.schar
 	w := (*C.schar)(C.CString(word))
 	// 调用c 接口
 	C.Hello(w)
